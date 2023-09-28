@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>$title$</title>
+		<authors>$author$</authors>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<license type="expression">MIT</license>
+		<icon>logo_png.png</icon>
+		<projectUrl>https://github.com/TakermanLTD/packages</projectUrl>
+		<description>$description$</description>
+		<releaseNotes>Dispose the connection and channel when sending to rabbitmq</releaseNotes>
+		<copyright>$copyright$</copyright>
+		<tags>takeran mail</tags>
+	</metadata>
+</package>

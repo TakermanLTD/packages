@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<Nullable>enable</Nullable>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>Takerman Mail</Title>
 		<Description>Package to send mail using RabbitMq and MailSender</Description>

@@ -2,8 +2,6 @@
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System;
-using System.Linq;
-using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using Takerman.Mail.Queue;
@@ -17,7 +15,6 @@ namespace Takerman.Mail
 
         public MailService(IOptions<RabbitMqConfig> rabbitMqConfig)
         {
-
             _rabbitMqConfig = rabbitMqConfig.Value;
             _connectionFactory = new ConnectionFactory()
             {
@@ -29,12 +26,12 @@ namespace Takerman.Mail
             };
         }
 
-        public async Task SendToQueue(MailMessage message)
+        public async Task SendToQueue(MailMessageDto message)
         {
             var messageDto = new MailMessageDto()
             {
-                From = message.From.Address,
-                To = message.To.FirstOrDefault().Address,
+                From = message.From,
+                To = message.To,
                 Body = message.Body,
                 Subject = message.Subject
             };

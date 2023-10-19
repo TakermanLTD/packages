@@ -1,7 +1,10 @@
-﻿namespace Takerman.Mail
+﻿using System.Net.Mail;
+using System.Threading.Tasks;
+
+namespace Takerman.Mail
 {
     public interface IMailService
     {
-        void SendToQueue(MailMessageDto mailMessage, RabbitMqConfig rabbitMqConfig);
+        Task SendToQueue(MailMessage message);
     }
 }

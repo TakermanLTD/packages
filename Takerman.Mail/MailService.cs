@@ -65,10 +65,17 @@ namespace Takerman.Mail
                     }
                     finally
                     {
-                        channel.Close();
-                        connection.Close();
-                        channel.Dispose();
-                        connection.Dispose();
+                        if (channel != null)
+                        {
+                            channel.Close();
+                            channel.Dispose();
+                        }
+
+                        if (connection != null)
+                        {
+                            connection.Close();
+                            connection.Dispose();
+                        }
                     }
                 }
             }

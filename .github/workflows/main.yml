@@ -60,6 +60,8 @@ jobs:
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Marketplace/bin/Release/*.nupkg --skip-duplicate
 
-      - name: Create Vue framework
+      - name: Build Vue framework
         working-directory: ./takerframework
-        run: npm ci && npm publish --skip-existing
+        run: npm ci
+      - name: Publish Vue package
+        run: npm publish --skip-existing

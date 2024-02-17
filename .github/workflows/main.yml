@@ -61,7 +61,7 @@ jobs:
         run: dotnet nuget push Takerman.Marketplace/bin/Release/*.nupkg --skip-duplicate
 
       - name: Build Vue framework
-        working-directory: ./takerframework
+        working-directory: ../takerframework
         run: npm ci
       - name: Publish Vue package
         run: npm publish --skip-existing

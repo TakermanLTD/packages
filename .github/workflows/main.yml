@@ -34,31 +34,31 @@ jobs:
         working-directory: ./Takerman.Notifications
         run: dotnet pack --configuration Release
       - name: Publish the package to GPR
-        run: dotnet nuget push Takerman.Notifications/bin/Release/*.nupkg --skip-existing
+        run: dotnet nuget push Takerman.Notifications/bin/Release/*.nupkg --skip-duplicate
       
       - name: Create Auth package
         working-directory: ./Takerman.Auth
         run: dotnet pack --configuration Release
       - name: Publish the package to GPR
-        run: dotnet nuget push Takerman.Auth/bin/Release/*.nupkg --skip-existing
+        run: dotnet nuget push Takerman.Auth/bin/Release/*.nupkg --skip-duplicate
   
       - name: Create Blogging package
         working-directory: ./Takerman.Blogging
         run: dotnet pack --configuration Release
       - name: Publish the package to GPR
-        run: dotnet nuget push Takerman.Blogging/bin/Release/*.nupkg --skip-existing
+        run: dotnet nuget push Takerman.Blogging/bin/Release/*.nupkg --skip-duplicate
 
       - name: Create Dating package
         working-directory: ./Takerman.Dating
         run: dotnet pack --configuration Release
       - name: Publish the package to GPR
-        run: dotnet nuget push Takerman.Dating/bin/Release/*.nupkg --skip-existing
+        run: dotnet nuget push Takerman.Dating/bin/Release/*.nupkg --skip-duplicate
 
       - name: Create Marketplace package
         working-directory: ./Takerman.Marketplace
         run: dotnet pack --configuration Release
       - name: Publish the package to GPR
-        run: dotnet nuget push Takerman.Marketplace/bin/Release/*.nupkg --skip-existing
+        run: dotnet nuget push Takerman.Marketplace/bin/Release/*.nupkg --skip-duplicate
 
       - name: Create Vue framework
         working-directory: ./takerframework

@@ -12,16 +12,44 @@ jobs:
         contents: read
         packages: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-dotnet@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0'
+          dotnet-version: '8.0.x'
           source-url: https://nuget.pkg.github.com/takermanltd/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
       - name: Build project
         run: dotnet build --configuration Release
-      - name: Create the package
+
+      - name: Create Notifications package
+        working-directory: ./Takerman.Notifications
         run: dotnet pack --configuration Release
       - name: Publish the package to GPR
-        run: dotnet nuget push Takerman.Mail/bin/Release/*.nupkg
+        run: dotnet nuget push Takerman.Notifications/bin/Release/*.nupkg
+      
+      - name: Create Auth package
+        working-directory: ./Takerman.Auth
+        run: dotnet pack --configuration Release
+      - name: Publish the package to GPR
+        run: dotnet nuget push Takerman.Auth/bin/Release/*.nupkg
+  
+      - name: Create Blogging package
+        working-directory: ./Takerman.Blogging
+        run: dotnet pack --configuration Release
+      - name: Publish the package to GPR
+        run: dotnet nuget push Takerman.Blogging/bin/Release/*.nupkg
+
+      - name: Create Dating package
+        working-directory: ./Takerman.Dating
+        run: dotnet pack --configuration Release
+      - name: Publish the package to GPR
+        run: dotnet nuget push Takerman.Dating/bin/Release/*.nupkg
+
+      - name: Create Marketplace package
+        working-directory: ./Takerman.Marketplace
+        run: dotnet pack --configuration Release
+      - name: Publish the package to GPR
+        run: dotnet nuget push Takerman.Marketplace/bin/Release/*.nupkg
+  

@@ -1,5 +1,6 @@
 {
-  "name": "takerframework",
+  "name": "@takermanltd/takerframework",
+  "repository": "git@github.com:takermanltd/packages.git",
   "version": "1.0.0",
   "type": "module",
   "scripts": {

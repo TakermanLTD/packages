@@ -61,7 +61,7 @@ jobs:
         run: dotnet nuget push Takerman.Marketplace/bin/Release/*.nupkg --skip-duplicate
 
       - name: Login to the NPM registry
-        run: npm login --scope=@OWNER --registry=https://npm.pkg.github.com
+        run: npm login --scope=@takerman --registry=https://npm.pkg.github.com
       - name: Build Vue framework
         working-directory: ./takerframework
         run: npm ci

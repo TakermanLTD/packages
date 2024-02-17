@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
-using System;
 using System.Text;
-using System.Threading.Tasks;
 using Takerman.Mail.Queue;
 
 namespace Takerman.Mail

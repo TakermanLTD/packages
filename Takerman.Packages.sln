@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Mail", "Takerman.Mail\Takerman.Mail.csproj", "{947CA7B8-FFEF-4CAA-867B-241498180D1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Blogging", "Takerman.Blogging\Takerman.Blogging.csproj", "{C5C7BB19-E9B8-4D3A-A1A4-E0E1CC5388D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Notifications", "Takerman.Notifications\Takerman.Notifications.csproj", "{02BFD757-EC94-4F66-910D-C5BEA8A7C75C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Dating", "Takerman.Dating\Takerman.Dating.csproj", "{8E04784B-CE52-435C-A8DA-54C9C1F72971}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Marketplace", "Takerman.Marketplace\Takerman.Marketplace.csproj", "{2FA4E75A-B486-4F91-A4C8-3825A419A132}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Auth", "Takerman.Auth\Takerman.Auth.csproj", "{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{947CA7B8-FFEF-4CAA-867B-241498180D1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{947CA7B8-FFEF-4CAA-867B-241498180D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{947CA7B8-FFEF-4CAA-867B-241498180D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{947CA7B8-FFEF-4CAA-867B-241498180D1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C7BB19-E9B8-4D3A-A1A4-E0E1CC5388D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C7BB19-E9B8-4D3A-A1A4-E0E1CC5388D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C7BB19-E9B8-4D3A-A1A4-E0E1CC5388D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C7BB19-E9B8-4D3A-A1A4-E0E1CC5388D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02BFD757-EC94-4F66-910D-C5BEA8A7C75C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02BFD757-EC94-4F66-910D-C5BEA8A7C75C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02BFD757-EC94-4F66-910D-C5BEA8A7C75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02BFD757-EC94-4F66-910D-C5BEA8A7C75C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E04784B-CE52-435C-A8DA-54C9C1F72971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E04784B-CE52-435C-A8DA-54C9C1F72971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E04784B-CE52-435C-A8DA-54C9C1F72971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E04784B-CE52-435C-A8DA-54C9C1F72971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA4E75A-B486-4F91-A4C8-3825A419A132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA4E75A-B486-4F91-A4C8-3825A419A132}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA4E75A-B486-4F91-A4C8-3825A419A132}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA4E75A-B486-4F91-A4C8-3825A419A132}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

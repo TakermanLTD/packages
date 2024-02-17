@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Takerman.Mail
+﻿namespace Takerman.Mail
 {
     public interface IMailService
     {

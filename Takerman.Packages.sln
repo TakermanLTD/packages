@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Blogging", "Takerman.Blogging\Takerman.Blogging.csproj", "{C5C7BB19-E9B8-4D3A-A1A4-E0E1CC5388D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Blogging", "Takerman.Blogging\Takerman.Blogging.csproj", "{C5C7BB19-E9B8-4D3A-A1A4-E0E1CC5388D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Notifications", "Takerman.Notifications\Takerman.Notifications.csproj", "{02BFD757-EC94-4F66-910D-C5BEA8A7C75C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Notifications", "Takerman.Notifications\Takerman.Notifications.csproj", "{02BFD757-EC94-4F66-910D-C5BEA8A7C75C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Dating", "Takerman.Dating\Takerman.Dating.csproj", "{8E04784B-CE52-435C-A8DA-54C9C1F72971}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Dating", "Takerman.Dating\Takerman.Dating.csproj", "{8E04784B-CE52-435C-A8DA-54C9C1F72971}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Marketplace", "Takerman.Marketplace\Takerman.Marketplace.csproj", "{2FA4E75A-B486-4F91-A4C8-3825A419A132}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Marketplace", "Takerman.Marketplace\Takerman.Marketplace.csproj", "{2FA4E75A-B486-4F91-A4C8-3825A419A132}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Auth", "Takerman.Auth\Takerman.Auth.csproj", "{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Auth", "Takerman.Auth\Takerman.Auth.csproj", "{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "takerframework", "takerframework\takerframework.esproj", "{230E1023-0540-4864-A691-9733AD3B78A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,12 @@ Global
 		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{230E1023-0540-4864-A691-9733AD3B78A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{230E1023-0540-4864-A691-9733AD3B78A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{230E1023-0540-4864-A691-9733AD3B78A1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{230E1023-0540-4864-A691-9733AD3B78A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{230E1023-0540-4864-A691-9733AD3B78A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{230E1023-0540-4864-A691-9733AD3B78A1}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

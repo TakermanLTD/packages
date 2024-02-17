@@ -13,9 +13,6 @@
   "dependencies": {
     "vue": "^3.4.15"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/takermanltd"
-  },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",
     "@tsconfig/node20": "^20.1.2",

@@ -19,13 +19,6 @@ jobs:
           source-url: https://nuget.pkg.github.com/takermanltd/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '20.x'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@takerman'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
 
       - name: Build project
         run: dotnet build --configuration Release
@@ -60,9 +53,15 @@ jobs:
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Marketplace/bin/Release/*.nupkg --skip-duplicate
 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
       - name: Build Vue framework
         working-directory: ./takerframework
         run: npm ci
       - name: Publish Vue package
         working-directory: ./takerframework
         run: npm publish --skip-existing
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

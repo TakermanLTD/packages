@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Marketplace", "Tak
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Auth", "Takerman.Auth\Takerman.Auth.csproj", "{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "takerframework", "takerframework\takerframework.esproj", "{230E1023-0540-4864-A691-9733AD3B78A1}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "takerframework", "takerframework\takerframework.esproj", "{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,12 +41,12 @@ Global
 		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{230E1023-0540-4864-A691-9733AD3B78A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{230E1023-0540-4864-A691-9733AD3B78A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{230E1023-0540-4864-A691-9733AD3B78A1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{230E1023-0540-4864-A691-9733AD3B78A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{230E1023-0540-4864-A691-9733AD3B78A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{230E1023-0540-4864-A691-9733AD3B78A1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

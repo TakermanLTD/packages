@@ -64,6 +64,6 @@ jobs:
         run: npm ci
       - name: Publish Vue package
         working-directory: ./takerframework
-        run: npm publish --skip-existing
+        run: npm publish --skip-existing --force
         env:
           NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}

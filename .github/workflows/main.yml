@@ -25,36 +25,36 @@ jobs:
 
       - name: Create Notifications package
         working-directory: ./Takerman.Notifications
-        run: dotnet pack --configuration Release
+        run: dotnet pack -IncludeReferencedProjects --configuration Release
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Notifications/bin/Release/*.nupkg --skip-duplicate
       
       - name: Create Auth package
         working-directory: ./Takerman.Auth
-        run: dotnet pack --configuration Release
+        run: dotnet pack -IncludeReferencedProjects --configuration Release
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Auth/bin/Release/*.nupkg --skip-duplicate
   
       - name: Create Blogging package
         working-directory: ./Takerman.Blogging
-        run: dotnet pack --configuration Release
+        run: dotnet pack -IncludeReferencedProjects --configuration Release
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Blogging/bin/Release/*.nupkg --skip-duplicate
 
       - name: Create Dating package
         working-directory: ./Takerman.Dating
-        run: dotnet pack --configuration Release
+        run: dotnet pack -IncludeReferencedProjects --configuration Release
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Dating/bin/Release/*.nupkg --skip-duplicate
 
       - name: Create Marketplace package
         working-directory: ./Takerman.Marketplace
-        run: dotnet pack --configuration Release
+        run: dotnet pack -IncludeReferencedProjects --configuration Release
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Marketplace/bin/Release/*.nupkg --skip-duplicate
 
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '20.x'
           registry-url: 'https://npm.pkg.github.com'

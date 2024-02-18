@@ -25,7 +25,7 @@ jobs:
 
       - name: Create Notifications package
         working-directory: ./Takerman.Notifications
-        run: dotnet pack -IncludeReferencedProjects --configuration Release
+        run: dotnet pack --includereferencedprojects --configuration Release
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Notifications/bin/Release/*.nupkg --skip-duplicate
       

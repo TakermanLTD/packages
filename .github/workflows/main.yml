@@ -31,25 +31,25 @@ jobs:
       
       - name: Create Auth package
         working-directory: ./Takerman.Auth
-        run: dotnet pack -IncludeReferencedProjects --configuration Release
+        run: dotnet pack --includereferencedprojects --configuration Release
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Auth/bin/Release/*.nupkg --skip-duplicate
   
       - name: Create Blogging package
         working-directory: ./Takerman.Blogging
-        run: dotnet pack -IncludeReferencedProjects --configuration Release
+        run: dotnet pack --includereferencedprojects --configuration Release
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Blogging/bin/Release/*.nupkg --skip-duplicate
 
       - name: Create Dating package
         working-directory: ./Takerman.Dating
-        run: dotnet pack -IncludeReferencedProjects --configuration Release
+        run: dotnet pack --includereferencedprojects --configuration Release
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Dating/bin/Release/*.nupkg --skip-duplicate
 
       - name: Create Marketplace package
         working-directory: ./Takerman.Marketplace
-        run: dotnet pack -IncludeReferencedProjects --configuration Release
+        run: dotnet pack --includereferencedprojects --configuration Release
       - name: Publish the package to GPR
         run: dotnet nuget push Takerman.Marketplace/bin/Release/*.nupkg --skip-duplicate
 

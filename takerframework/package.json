@@ -1,7 +1,10 @@
 {
   "name": "@takermanltd/takerframework",
   "repository": "git@github.com:takermanltd/packages.git",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "private": false,
+  "author": "Takerman",
+  "description": "Vue framework with different components and sections used across applications",
   "type": "module",
   "scripts": {
     "dev": "vite",

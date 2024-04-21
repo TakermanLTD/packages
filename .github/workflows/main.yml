@@ -54,6 +54,8 @@ jobs:
           PKG_NAME=$(node -p "require('./package.json').name")
           EXISTS=$(npm view "$PKG_NAME@$VERSION" version)
           echo "PKG_EXISTS=$EXISTS" >> $GITHUB_ENV
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
       - name: Publish to npm
         if: env.PKG_EXISTS == ''
         run: npm publish

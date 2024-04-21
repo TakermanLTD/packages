@@ -1,20 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	  <IsPackable>True</IsPackable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageIcon>logo_png.png</PackageIcon>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Copyright>Takerman</Copyright>
+		<PackageVersion>1.0.2</PackageVersion>
+		<IsPackable>True</IsPackable>
+	</PropertyGroup>
 
-  <PropertyGroup>
-	  <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
-  </PropertyGroup>
+	<ItemGroup>
+		<None Include="..\logo_png.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
-  <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
-	  <ItemGroup>
-		  <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'all'))" />
-	  </ItemGroup>
-  </Target>
-	
+	<PropertyGroup>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+	</PropertyGroup>
+
+	<Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+		<ItemGroup>
+			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'all'))" />
+		</ItemGroup>
+	</Target>
+
 </Project>

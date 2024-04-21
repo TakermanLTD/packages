@@ -8,7 +8,7 @@
 		<Copyright>Takerman</Copyright>
 		<PackageIcon>logo_png.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageVersion>1.0.1</PackageVersion>
+		<PackageVersion>1.0.2</PackageVersion>
 		<Description>Nuget package for adding simple blog with management in the blogging service</Description>
 		<IsPackable>True</IsPackable>
 	</PropertyGroup>

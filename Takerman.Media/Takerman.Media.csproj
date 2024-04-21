@@ -1,32 +1,43 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	  <IsPackable>True</IsPackable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageIcon>logo_png.png</PackageIcon>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Copyright>Takerman</Copyright>
+		<PackageVersion>1.0.2</PackageVersion>
+		<IsPackable>True</IsPackable>
+	</PropertyGroup>
 
-  <PropertyGroup>
-	  <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
-  </PropertyGroup>
+	<ItemGroup>
+		<None Include="..\logo_png.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
-  <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
-	  <ItemGroup>
-		  <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'all'))" />
-	  </ItemGroup>
-  </Target>
+	<PropertyGroup>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
-    <PackageReference Include="Google.Apis.YouTube.V3" Version="1.67.0.3391" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
-    <PackageReference Include="SpotifyAPI.Web" Version="7.1.1" />
-  </ItemGroup>
+	<Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+		<ItemGroup>
+			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'all'))" />
+		</ItemGroup>
+	</Target>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Takerman.Extensions\Takerman.Extensions.csproj" />
-    <ProjectReference Include="..\Takerman.External.Core\Takerman.External.Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
+		<PackageReference Include="Google.Apis.YouTube.V3" Version="1.67.0.3391" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
+		<PackageReference Include="SpotifyAPI.Web" Version="7.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Takerman.Extensions\Takerman.Extensions.csproj" />
+		<ProjectReference Include="..\Takerman.External.Core\Takerman.External.Core.csproj" />
+	</ItemGroup>
 
 </Project>

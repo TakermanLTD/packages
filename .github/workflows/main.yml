@@ -17,42 +17,24 @@ jobs:
         with:
           dotnet-version: '8.0.x'
           source-url: https://nuget.pkg.github.com/takermanltd/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Restore dependencies
+        run: dotnet restore
 
       - name: Build project
-        run: dotnet build --configuration Release
+        run: dotnet build --no-restore --configuration Release
 
-      - name: Create Notifications package
-        working-directory: ./Takerman.Notifications
-        run: dotnet pack --configuration Release
-      - name: Publish the package to GPR
-        run: dotnet nuget push Takerman.Notifications/bin/Release/*.nupkg --skip-duplicate
-      
-      - name: Create Auth package
-        working-directory: ./Takerman.Auth
-        run: dotnet pack --configuration Release
-      - name: Publish the package to GPR
-        run: dotnet nuget push Takerman.Auth/bin/Release/*.nupkg --skip-duplicate
-  
-      - name: Create Blogging package
-        working-directory: ./Takerman.Blogging
-        run: dotnet pack --configuration Release
-      - name: Publish the package to GPR
-        run: dotnet nuget push Takerman.Blogging/bin/Release/*.nupkg --skip-duplicate
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
 
-      - name: Create Dating package
-        working-directory: ./Takerman.Dating
-        run: dotnet pack --configuration Release
-      - name: Publish the package to GPR
-        run: dotnet nuget push Takerman.Dating/bin/Release/*.nupkg --skip-duplicate
-
-      - name: Create Marketplace package
-        working-directory: ./Takerman.Marketplace
-        run: dotnet pack --configuration Release
-      - name: Publish the package to GPR
-        run: dotnet nuget push Takerman.Marketplace/bin/Release/*.nupkg --skip-duplicate
-
+      - name: Pack and Publish
+        run: |
+          dotnet nuget locals all --clear
+          for csproj in $(find . -name '*.csproj'); do
+            dotnet pack "$csproj" --no-build --output nupkg
+            dotnet nuget push "nupkg/*.nupkg" --api-key ${{secrets.GITHUB_TOKEN}} --skip-duplicate
+          done
+          
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -61,9 +43,8 @@ jobs:
           scope: '@TAKERMANLTD'
       - name: Build Vue framework
         working-directory: ./takerframework
-        run: npm ci
-      - name: Publish Vue package
-        working-directory: ./takerframework
-        run: npm publish --skip-existing --force
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+        run: npm ci && npm test
+      - name: Publish to npm
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.REGISTRY_TOKEN }}

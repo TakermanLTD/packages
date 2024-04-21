@@ -16,8 +16,16 @@
 		  <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'all'))" />
 	  </ItemGroup>
   </Target>
-	
+
   <ItemGroup>
+    <PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
+    <PackageReference Include="Google.Apis.YouTube.V3" Version="1.67.0.3391" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
+    <PackageReference Include="SpotifyAPI.Web" Version="7.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Takerman.Extensions\Takerman.Extensions.csproj" />
     <ProjectReference Include="..\Takerman.External.Core\Takerman.External.Core.csproj" />
   </ItemGroup>
 

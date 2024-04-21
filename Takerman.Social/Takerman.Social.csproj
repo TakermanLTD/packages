@@ -16,7 +16,7 @@
 		  <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'all'))" />
 	  </ItemGroup>
   </Target>
-	
+
   <ItemGroup>
     <ProjectReference Include="..\Takerman.External.Core\Takerman.External.Core.csproj" />
   </ItemGroup>

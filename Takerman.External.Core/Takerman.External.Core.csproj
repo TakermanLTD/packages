@@ -17,8 +17,4 @@
 	  </ItemGroup>
   </Target>
 	
-  <ItemGroup>
-    <ProjectReference Include="..\Takerman.External.Core\Takerman.External.Core.csproj" />
-  </ItemGroup>
-
 </Project>

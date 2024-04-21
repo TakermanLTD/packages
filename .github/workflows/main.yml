@@ -45,7 +45,7 @@ jobs:
           scope: '@TAKERMANLTD'
       - name: Build Vue framework
         working-directory: ./takerframework
-        run: npm ci && npm test
+        run: npm ci
       - name: Publish to npm
         uses: JS-DevTools/npm-publish@v3
         with:

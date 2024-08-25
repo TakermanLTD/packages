@@ -34,6 +34,7 @@
 		<PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.17.2" />
 		<PackageReference Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.17.2" />
 		<PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.17.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>

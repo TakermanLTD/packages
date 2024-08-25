@@ -1,14 +1,13 @@
-﻿using Microsoft.Extensions.Logging;
-using Takerman.AI;
+﻿using Takerman.AI;
+using Takerman.AI.Config;
 
-using ILoggerFactory factory = LoggerFactory.Create(builder => builder.AddConsole());
-ILogger logger = factory.CreateLogger("Program");
+for (int i = 0; i < 3; i++)
+{
+    var text = await HuggingChatHelper.GetTextResultAsync("Please tell me interesting fact about toxic father or toxic brother.", ModelType.Gemma7B);
+    Console.WriteLine(text);
 
-var ai = new AIManager(logger);
+    var image = await HuggingChatHelper.GetTextToMediaResultAsync("Can you make a caricature of famouse politician this year?", ModelType.DreamLikeArt);
+    File.WriteAllBytes($"C:\\image{i}.png", image);
+}
 
-var result = await ai.GetTextAnswer("Can I get merried if I am 33 years old?", AIModel.Mixtral7B);
-
-var image = await ai.GetMediaAnswer("Can you make a picture of Joe Binden?", AIModel.DreamLikeArt, "image.png");
-
-Console.WriteLine(image);
 Console.ReadLine();

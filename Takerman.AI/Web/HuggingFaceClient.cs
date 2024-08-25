@@ -2,14 +2,28 @@
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using Takerman.AI.Config;
 
-namespace Takerman.AI
+namespace Takerman.AI.Web
 {
-    public class AIManager(ILogger _logger) : IAIManager
+    public class HuggingFaceClient : HttpClient
     {
-        private const string API_KEY = "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";
+        private const string HUGGING_FACE_TOKEN = "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";
+        private readonly ILogger<HuggingFaceClient> _logger;
 
-        public async Task<byte[]> GetMediaAnswer(string question, AIModel model, string outputFileName)
+        public HuggingFaceClient(ILogger<HuggingFaceClient> logger)
+        {
+            _logger = logger;
+            BaseAddress = new Uri("https://api-inference.huggingface.co/models/");
+        }
+
+        public override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HUGGING_FACE_TOKEN);
+            return base.SendAsync(request, cancellationToken);
+        }
+
+        public async Task<byte[]> GetTextToMediaResultAsync(string question, ModelType model)
         {
             var requestBody = new
             {
@@ -33,37 +47,32 @@ namespace Takerman.AI
                 }
             };
 
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", API_KEY);
+            DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HUGGING_FACE_TOKEN);
             var content = new StringContent(JsonSerializer.Serialize(requestBody), Encoding.UTF8, "application/json");
 
             try
             {
-                var response = await client.PostAsync("https://api-inference.huggingface.co/models/" + model.GetEnumDescription(), content);
+                var response = await PostAsync(model.GetEnumDescription(), content);
                 if (response.IsSuccessStatusCode)
                 {
                     var imageData = await response.Content.ReadAsByteArrayAsync();
-                    File.WriteAllBytes(outputFileName, imageData);
                     return imageData;
                 }
                 else
                 {
-                    var error = "Failed to generate media: " + response.StatusCode;
-                    _logger.LogError(error);
-                    Console.WriteLine(error);
+                    _logger.LogError("Failed to generate media: " + response.StatusCode);
                 }
             }
             catch (Exception ex)
             {
                 var message = ex.Message + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
                 _logger.LogError(ex, "An error occured when requesting model: " + message);
-                Console.WriteLine(message);
             }
 
             return null;
         }
 
-        public async Task<string> GetTextAnswer(string question, AIModel model)
+        public async Task<string> GetTextResultAsync(string question, ModelType model)
         {
             var requestBody = new
             {
@@ -82,13 +91,12 @@ namespace Takerman.AI
                 }
             };
 
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", API_KEY);
+            DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HUGGING_FACE_TOKEN);
             var content = new StringContent(JsonSerializer.Serialize(requestBody), Encoding.UTF8, "application/json");
 
             try
             {
-                var response = await client.PostAsync("https://api-inference.huggingface.co/models/" + model.GetEnumDescription(), content);
+                var response = await PostAsync(model.GetEnumDescription(), content);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -99,17 +107,15 @@ namespace Takerman.AI
                 {
                     var error = "Failed to generate output: " + response.StatusCode;
                     _logger.LogError(error);
-                    Console.WriteLine(error);
                 }
             }
             catch (Exception ex)
             {
                 var message = ex.Message + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
                 _logger.LogError(ex, "An error occured when requesting model: " + message);
-                Console.WriteLine(message);
             }
 
-            return null;
+            return string.Empty;
         }
     }
 }

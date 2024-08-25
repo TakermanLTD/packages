@@ -30,7 +30,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
-		<PackageReference Include="Google.Apis.YouTube.V3" Version="1.68.0.3421" />
+		<PackageReference Include="Google.Apis.YouTube.V3" Version="1.68.0.3513" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
 		<PackageReference Include="SpotifyAPI.Web" Version="7.1.1" />
 	</ItemGroup>

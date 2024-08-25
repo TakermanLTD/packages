@@ -10,7 +10,7 @@ while (i < 3)
         Console.WriteLine(text);
         Console.WriteLine();
 
-        var image = await HuggingChatHelper.GetResultAsync("A Character from the demon slayers corp drawin in the style which the naruto anime is drawn", ModelType.Flux);
+        var image = await HuggingChatHelper.GetResultAsync("Thumbnail for a speed dating website for a date from 23 to 30 years old ", ModelType.Flux);
         File.WriteAllBytes($"C:\\image{i}.png", image);
         Console.WriteLine($"Generated image number {i}");
         i++;

@@ -17,8 +17,6 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "takerframework", "takerfram
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Extensions", "Takerman.Extensions\Takerman.Extensions.csproj", "{478DFCC7-E1B3-4520-A5B4-A2CD95DC28E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.External.Core", "Takerman.External.Core\Takerman.External.Core.csproj", "{1F964604-1C09-40A4-9FAA-41339369B04F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Media", "Takerman.Media\Takerman.Media.csproj", "{E1B00CB2-0583-468A-9152-1E1037657876}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Social", "Takerman.Social\Takerman.Social.csproj", "{83A51F1D-C871-4692-B60E-117667AE591C}"
@@ -26,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.AI", "Takerman.AI\Takerman.AI.csproj", "{C86E201B-72CB-404D-BF3A-E2ED24600E80}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takerman.Client", "Takerman.Client\Takerman.Client.csproj", "{5D73D6BE-5056-419F-A860-789D6290DC23}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.External", "Takerman.External\Takerman.External.csproj", "{817F0013-87DC-4FD7-BB63-D55E068D182F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,10 +63,6 @@ Global
 		{478DFCC7-E1B3-4520-A5B4-A2CD95DC28E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{478DFCC7-E1B3-4520-A5B4-A2CD95DC28E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{478DFCC7-E1B3-4520-A5B4-A2CD95DC28E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F964604-1C09-40A4-9FAA-41339369B04F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F964604-1C09-40A4-9FAA-41339369B04F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F964604-1C09-40A4-9FAA-41339369B04F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F964604-1C09-40A4-9FAA-41339369B04F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E1B00CB2-0583-468A-9152-1E1037657876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E1B00CB2-0583-468A-9152-1E1037657876}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1B00CB2-0583-468A-9152-1E1037657876}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -83,6 +79,10 @@ Global
 		{5D73D6BE-5056-419F-A860-789D6290DC23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D73D6BE-5056-419F-A860-789D6290DC23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D73D6BE-5056-419F-A860-789D6290DC23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{817F0013-87DC-4FD7-BB63-D55E068D182F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817F0013-87DC-4FD7-BB63-D55E068D182F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817F0013-87DC-4FD7-BB63-D55E068D182F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817F0013-87DC-4FD7-BB63-D55E068D182F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

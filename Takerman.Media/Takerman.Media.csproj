@@ -37,7 +37,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Takerman.Extensions\Takerman.Extensions.csproj" />
-		<ProjectReference Include="..\Takerman.External.Core\Takerman.External.Core.csproj" />
+		<ProjectReference Include="..\Takerman.External\Takerman.External.csproj" />
 	</ItemGroup>
 
 </Project>

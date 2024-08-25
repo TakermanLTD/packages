@@ -1,7 +1,14 @@
-﻿using Takerman.AI;
+﻿using Microsoft.Extensions.Logging;
+using Takerman.AI;
 
-var ai = new AIManager();
-var result = await ai.GetAnswer("Can I get merried if I am 33 years old?", AIModel.Mixtral7Bversion1);
+using ILoggerFactory factory = LoggerFactory.Create(builder => builder.AddConsole());
+ILogger logger = factory.CreateLogger("Program");
 
-Console.WriteLine(result);
+var ai = new AIManager(logger);
+
+var result = await ai.GetTextAnswer("Can I get merried if I am 33 years old?", AIModel.Mixtral7B);
+
+var image = await ai.GetMediaAnswer("Can you make a picture of Joe Binden?", AIModel.DreamLikeArt, "image.png");
+
+Console.WriteLine(image);
 Console.ReadLine();

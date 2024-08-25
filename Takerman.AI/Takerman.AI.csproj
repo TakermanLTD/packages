@@ -17,12 +17,16 @@
 
 	<Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
 		<ItemGroup>
-			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'all'))" />
+			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')-&gt;WithMetadataValue('PrivateAssets', 'all'))" />
 		</ItemGroup>
 	</Target>
 
 	<ItemGroup>
-		<PackageReference Include="HuggingFace" Version="0.2.4" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+		<PackageReference Include="Microsoft.SemanticKernel" Version="1.17.2" />
+		<PackageReference Include="Microsoft.SemanticKernel.Abstractions" Version="1.17.2" />
+		<PackageReference Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.17.2" />
+		<PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.17.2" />
 	</ItemGroup>
 
 	<ItemGroup>

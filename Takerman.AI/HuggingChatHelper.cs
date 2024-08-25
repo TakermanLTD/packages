@@ -25,7 +25,9 @@ namespace Takerman.AI
 
             var client = new HttpClient
             {
-                BaseAddress = new Uri(HUGGING_FACE_API)
+                BaseAddress = new Uri(HUGGING_FACE_API),
+                Timeout = TimeSpan.FromHours(3),
+                MaxResponseContentBufferSize = 2147483647
             };
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HUGGING_FACE_TOKEN);
             var content = new StringContent(JsonSerializer.Serialize(requestBody), Encoding.UTF8, "application/json");

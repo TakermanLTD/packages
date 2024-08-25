@@ -43,8 +43,8 @@ namespace Takerman.AI.Config
         /// <summary>
         /// Text-to-Image https://huggingface.co/black-forest-labs/FLUX.1-dev
         /// </summary>
-        // [Description("black-forest-labs/FLUX.1-dev")]
-        // Flux,
+        [Description("black-forest-labs/FLUX.1-dev")]
+        Flux,
 
         /// <summary>
         /// Image-to-Video https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt

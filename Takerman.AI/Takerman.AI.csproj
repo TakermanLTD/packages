@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Copyright>Takerman</Copyright>
-		<PackageVersion>1.0.0</PackageVersion>
+		<PackageVersion>1.0.1</PackageVersion>
 		<Description>AI by Takerman.</Description>
 		<IsPackable>True</IsPackable>
 	</PropertyGroup>
@@ -20,6 +20,12 @@
 			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')-&gt;WithMetadataValue('PrivateAssets', 'all'))" />
 		</ItemGroup>
 	</Target>
+
+	<ItemGroup>
+	  <Compile Remove="Web\**" />
+	  <EmbeddedResource Remove="Web\**" />
+	  <None Remove="Web\**" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />

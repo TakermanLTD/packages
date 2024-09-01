@@ -15,9 +15,8 @@ public class Program
 
     private static async Task TestOllamaChat()
     {
-        var question = "test";
-        // var question = "Please can you analyse the code in the location C:\\Users\\Administrator\\source\\repos\\app-dating\\Takerman.Dating.Server on this computer and list me all security vulnarabilities and code improvements that I can make?";
-        var result = await _ollamaChat.TextToText(question, OllamaModel.PhiMini);
+        var question = "Please can you analyse the code in the location C:\\Users\\Administrator\\source\\repos\\app-dating\\Takerman.Dating.Server on this computer and list me all security vulnarabilities and code improvements that I can make?";
+        var result = await _ollamaChat.TextToText(question, OllamaModel.Codelamma7b);
 
         Console.WriteLine(result);
     }

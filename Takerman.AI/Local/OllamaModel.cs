@@ -4,8 +4,8 @@ namespace Takerman.AI.Local
 {
     public enum OllamaModel
     {
-        [Description("phi:mini")]
-        PhiMini,
+        [Description("phi3:mini")]
+        Phi3Mini,
 
         [Description("codellama")]
         Codelamma7b

@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Copyright>Takerman</Copyright>
-		<PackageVersion>1.0.2</PackageVersion>
+		<PackageVersion>1.0.3</PackageVersion>
 		<Description>AI by Takerman.</Description>
 		<IsPackable>True</IsPackable>
 	</PropertyGroup>

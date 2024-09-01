@@ -1,24 +1,22 @@
 ﻿using System.Net.Http.Headers;
-using System.Reflection;
 using System.Text;
 using System.Text.Json;
-using Takerman.AI.Config;
 using Takerman.AI.DTOs;
 
-namespace Takerman.AI
+namespace Takerman.AI.HuggingChat
 {
-    public class HuggingChatHelper
+    public class HuggingChatApi : IChatApi
     {
         private const string HUGGING_FACE_TOKEN = "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";
         private const string HUGGING_FACE_API = "https://api-inference.huggingface.co/models/";
 
-        public static async Task<byte[]> GetResultAsync(string question, ModelType model)
+        public async Task<byte[]> TextToMedia(string question, HuggingChatModel model)
         {
             var response = await GetResponse(question, model);
             return await response.ReadAsByteArrayAsync();
         }
 
-        public static async Task<string> GetTextResultAsync(string question, ModelType model)
+        public async Task<string> TextToText(string question, HuggingChatModel model)
         {
             var response = await GetResponse(question, model);
             var text = await response.ReadAsStringAsync();
@@ -26,13 +24,12 @@ namespace Takerman.AI
             return result;
         }
 
-        private static async Task<HttpContent> GetResponse(string question, ModelType model)
+        private async Task<HttpContent> GetResponse(string question, HuggingChatModel model)
         {
-
             var requestBody = new
             {
                 inputs = question,
-                parameters = ParametersConfig.Get(model),
+                parameters = HuggingChatParams.Get(model),
                 options = new
                 {
                     wait_for_model = true,

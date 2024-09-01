@@ -1,14 +1,14 @@
-﻿namespace Takerman.AI.Config
+﻿namespace Takerman.AI.HuggingChat
 {
-    public class ParametersConfig
+    public class HuggingChatParams
     {
-        public static dynamic Get(ModelType modelType)
+        public static dynamic Get(HuggingChatModel modelType)
         {
             dynamic parameters;
             switch (modelType)
             {
-                case ModelType.Mixtral7B:
-                case ModelType.Gemma7B:
+                case HuggingChatModel.Mixtral7B:
+                case HuggingChatModel.Gemma7B:
                     return new
                     {
                         max_new_tokens = 250,
@@ -17,7 +17,7 @@
                         repetition_penalty = 1.0
                     };
 
-                case ModelType.DreamLikeArt:
+                case HuggingChatModel.DreamLikeArt:
                     return new
                     {
                         max_new_tokens = 250,
@@ -31,7 +31,7 @@
                         num_images_per_prompt = 1
                     };
 
-                case ModelType.Flux:
+                case HuggingChatModel.Flux:
                     return new
                     {
                         width = 1024,

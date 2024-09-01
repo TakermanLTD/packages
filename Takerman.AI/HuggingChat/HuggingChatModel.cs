@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace Takerman.AI.Config
+namespace Takerman.AI.HuggingChat
 {
-    public enum ModelType
+    public enum HuggingChatModel
     {
         /// <summary>
         /// Generic https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1

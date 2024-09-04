@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="xunit" Version="2.5.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\takerframework\takerframework.esproj" />
+    <ProjectReference Include="..\Takerman.AI\Takerman.AI.csproj" />
+    <ProjectReference Include="..\Takerman.Auth\Takerman.Auth.csproj" />
+    <ProjectReference Include="..\Takerman.Dating\Takerman.Dating.csproj" />
+    <ProjectReference Include="..\Takerman.Extensions\Takerman.Extensions.csproj" />
+    <ProjectReference Include="..\Takerman.Notifications\Takerman.Notifications.csproj" />
+    <ProjectReference Include="..\Takerman.Publishing\Takerman.Publishing.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Auth\" />
+    <Folder Include="Blogging\" />
+    <Folder Include="Client\" />
+    <Folder Include="Dating\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="External\" />
+    <Folder Include="Marketplace\" />
+    <Folder Include="Media\" />
+    <Folder Include="Social\" />
+    <Folder Include="Notifications\" />
+  </ItemGroup>
+
+</Project>

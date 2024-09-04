@@ -6,7 +6,7 @@ namespace Takerman.Packages.Tests.AI
     {
         private static OllamaApi _ollamaChat = new();
 
-        [Fact]
+        [Fact(Skip = "Until better way for the build is found")]
         public async Task Should_GenerateTextAnswer_When_RequestingWithText()
         {
             var question = @"Please can you analyse the code in the location C:\dev\app-dating\Takerman.Dating.Server on this computer and list me all security vulnarabilities and code improvements that I can make?";

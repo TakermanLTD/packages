@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.Facebook
 {
-    public class FacebookConfig : BaseConfig
+    public class FacebookConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class FacebookProvider : BaseProvider, IFacebookProvider
+    public class FacebookProvider : BasePlatform, IFacebookProvider
     {
     }
 }

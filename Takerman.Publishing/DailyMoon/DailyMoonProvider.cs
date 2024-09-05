@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.DailyMoon
 {
-    public class DailyMoonConfig : BaseConfig
+    public class DailyMoonConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class DailyMoonProvider : BaseProvider, IDailyMoonProvider
+    public class DailyMoonProvider : BasePlatform, IDailyMoonProvider
     {
     }
 }

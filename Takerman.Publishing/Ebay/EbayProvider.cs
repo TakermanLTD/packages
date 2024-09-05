@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.Ebay
 {
-    public class EbayConfig : BaseConfig
+    public class EbayConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class EbayProvider : BaseProvider, IEbayProvider
+    public class EbayProvider : BasePlatform, IEbayProvider
     {
     }
 }

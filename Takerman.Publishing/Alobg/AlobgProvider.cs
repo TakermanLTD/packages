@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.Alobg
 {
-    public class AlobgConfig : BaseConfig
+    public class AlobgConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class AlobgProvider : BaseProvider, IAlobgProvider
+    public class AlobgProvider : BasePlatform, IAlobgProvider
     {
         private static async Task ProcessRepositoriesAsync()
         {

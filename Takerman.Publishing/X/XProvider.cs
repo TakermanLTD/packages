@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.X
 {
-    public class XConfig : BaseConfig
+    public class XConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class XProvider : BaseProvider, IXProvider
+    public class XProvider : BasePlatform, IXProvider
     {
     }
 }

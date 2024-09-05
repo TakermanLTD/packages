@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.Bazar
 {
-    public class BazarbgConfig : BaseConfig
+    public class BazarbgConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class BazarProvider : BaseProvider, IBazarbgProvider
+    public class BazarProvider : BasePlatform, IBazarbgProvider
     {
     }
 }

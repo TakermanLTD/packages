@@ -2,7 +2,7 @@
 
 namespace Takerman.Publishing.Olx
 {
-    public class OlxConfig : BaseConfig
+    public class OlxConfig : PlatformConfig
     {
     }
 
@@ -10,7 +10,7 @@ namespace Takerman.Publishing.Olx
     {
     }
 
-    public class OlxProvider : BaseProvider, IOlxProvider
+    public class OlxProvider : BasePlatform, IOlxProvider
     {
         private static async Task GetTokenAsync()
         {

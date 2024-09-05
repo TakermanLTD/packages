@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.Emag
 {
-    public class EmagConfig : BaseConfig
+    public class EmagConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class EmagProvider : BaseProvider, IEmagProvider
+    public class EmagProvider : BasePlatform, IEmagProvider
     {
     }
 }

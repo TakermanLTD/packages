@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.Vimeo
 {
-    public class VimeoConfig : BaseConfig
+    public class VimeoConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class VimeoProvider : BaseProvider, IVimeoProvider
+    public class VimeoProvider : BasePlatform, IVimeoProvider
     {
     }
 }

@@ -5,7 +5,7 @@ using Takerman.Mixer.Services.Dtos;
 
 namespace Takerman.Publishing.Jamendo
 {
-    public class JamendoConfig : BaseConfig
+    public class JamendoConfig : PlatformConfig
     {
     }
 
@@ -13,7 +13,7 @@ namespace Takerman.Publishing.Jamendo
     {
     }
 
-    public class JamendoProvider(IOptions<JamendoConfig> _jamendoOptions) : BaseProvider, IJamendoProvider
+    public class JamendoProvider(IOptions<JamendoConfig> _jamendoOptions) : BasePlatform, IJamendoProvider
     {
         private readonly HttpClient _client = new()
         {

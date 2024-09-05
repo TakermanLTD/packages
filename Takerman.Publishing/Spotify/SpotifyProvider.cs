@@ -3,7 +3,7 @@ using SpotifyAPI.Web;
 
 namespace Takerman.Publishing.Spotify
 {
-    public class SpotifyConfig : BaseConfig
+    public class SpotifyConfig : PlatformConfig
     {
     }
 
@@ -11,7 +11,7 @@ namespace Takerman.Publishing.Spotify
     {
     }
 
-    public class SpotifyProvider(IOptions<SpotifyConfig> _options) : BaseProvider, ISpotifyProvider
+    public class SpotifyProvider(IOptions<SpotifyConfig> _options) : BasePlatform, ISpotifyProvider
     {
         private readonly SpotifyClient _spotify = new SpotifyClient(_options.Value.ClientId);
 

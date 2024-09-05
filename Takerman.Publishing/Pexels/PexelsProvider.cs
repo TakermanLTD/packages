@@ -4,7 +4,7 @@ using Takerman.Mixer.Services.Dtos;
 
 namespace Takerman.Publishing.Pexels
 {
-    public class PexelsConfig : BaseConfig
+    public class PexelsConfig : PlatformConfig
     {
     }
 
@@ -12,7 +12,7 @@ namespace Takerman.Publishing.Pexels
     {
     }
 
-    public class PexelsProvider(IOptions<PexelsConfig> _pexelsOptions) : BaseProvider, IPexelsProvider
+    public class PexelsProvider(IOptions<PexelsConfig> _pexelsOptions) : BasePlatform, IPexelsProvider
     {
         public async Task Download(string search, int imagesCount, string location)
         {

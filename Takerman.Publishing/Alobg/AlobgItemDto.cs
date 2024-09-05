@@ -4,18 +4,6 @@ namespace Takerman.Publishing.Alobg
 {
     public class AlobgItemDto
     {
-        public AlobgItemDto()
-        {
-        }
-
-        public AlobgItemDto(Publication publication) : this()
-        {
-            Name = publication.Name;
-            Description = publication.Description;
-            Price = publication.Price;
-            Images = publication.Pictures;
-        }
-
         [JsonPropertyName("_comment")]
         private string Comment { get; set; } = "Електроника » Други";
 

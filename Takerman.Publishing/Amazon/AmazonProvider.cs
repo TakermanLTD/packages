@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.Amazon
 {
-    public class AmazonConfig : BaseConfig
+    public class AmazonConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class AmazonProvider : BaseProvider, IAmazonProvider
+    public class AmazonProvider : BasePlatform, IAmazonProvider
     {
     }
 }

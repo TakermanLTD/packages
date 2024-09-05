@@ -4,7 +4,7 @@
     {
     }
 
-    public abstract class BaseProvider : IProvider
+    public abstract class BasePlatform : IProvider
     {
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.Aliexpress
 {
-    public class AliexpressConfig : BaseConfig
+    public class AliexpressConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class AliexpressProvider : BaseProvider, IAliexpressProvider
+    public class AliexpressProvider : BasePlatform, IAliexpressProvider
     {
     }
 }

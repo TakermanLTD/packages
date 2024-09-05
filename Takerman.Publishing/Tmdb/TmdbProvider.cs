@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.Tmdb
 {
-    public class TmdbConfig : BaseConfig
+    public class TmdbConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class TmdbProvider : BaseProvider, ITmdbProvider
+    public class TmdbProvider : BasePlatform, ITmdbProvider
     {
     }
 }

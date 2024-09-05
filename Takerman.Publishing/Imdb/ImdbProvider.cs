@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.Imdb
 {
-    public class ImdbConfig : BaseConfig
+    public class ImdbConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class ImdbProvider : BaseProvider, IImdbProvider
+    public class ImdbProvider : BasePlatform, IImdbProvider
     {
     }
 }

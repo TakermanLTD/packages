@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.TikTok
 {
-    public class TikTokConfig : BaseConfig
+    public class TikTokConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class TikTokProvider : BaseProvider, ITikTokProvider
+    public class TikTokProvider : BasePlatform, ITikTokProvider
     {
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.Instagram
 {
-    public class InstagramConfig : BaseConfig
+    public class InstagramConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class InstagramProvider : BaseProvider, IInstagramProvider
+    public class InstagramProvider : BasePlatform, IInstagramProvider
     {
     }
 }

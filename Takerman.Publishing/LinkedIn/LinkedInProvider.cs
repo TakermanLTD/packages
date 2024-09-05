@@ -1,6 +1,6 @@
 ﻿namespace Takerman.Publishing.LinkedIn
 {
-    public class LinkedInConfig : BaseConfig
+    public class LinkedInConfig : PlatformConfig
     {
     }
 
@@ -8,7 +8,7 @@
     {
     }
 
-    public class LinkedInProvider : BaseProvider, ILinkedInProvider
+    public class LinkedInProvider : BasePlatform, ILinkedInProvider
     {
     }
 }

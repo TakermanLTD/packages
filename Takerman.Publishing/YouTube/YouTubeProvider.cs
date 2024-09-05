@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 
 namespace Takerman.Publishing.YouTube
 {
-    public class YouTubeConfig : BaseConfig
+    public class YouTubeConfig : PlatformConfig
     {
     }
 
@@ -14,7 +14,7 @@ namespace Takerman.Publishing.YouTube
     {
     }
 
-    public class YouTubeProvider(IOptions<YouTubeConfig> _youtubeOptions) : BaseProvider, IYouTubeProvider
+    public class YouTubeProvider(IOptions<YouTubeConfig> _youtubeOptions) : BasePlatform, IYouTubeProvider
     {
         private HttpClient _httpClient = new()
         {

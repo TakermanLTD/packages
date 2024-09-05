@@ -4,7 +4,7 @@ using Takerman.Mixer.Services.Dtos;
 
 namespace Takerman.Publishing.FreeMusicArchive
 {
-    public class FreeMusicArchiveConfig : BaseConfig
+    public class FreeMusicArchiveConfig : PlatformConfig
     {
     }
 
@@ -13,7 +13,7 @@ namespace Takerman.Publishing.FreeMusicArchive
         Task<FmaSongDto> GetNewest();
     }
 
-    public class FreeMusicArchiveProvider(IOptions<FreeMusicArchiveConfig> _options, HttpClient _client) : BaseProvider, IFreeMusicArchiveProvider
+    public class FreeMusicArchiveProvider(IOptions<FreeMusicArchiveConfig> _options, HttpClient _client) : BasePlatform, IFreeMusicArchiveProvider
     {
         public async Task<FmaSongDto> GetNewest()
         {

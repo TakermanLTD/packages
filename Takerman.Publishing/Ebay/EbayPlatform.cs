@@ -8,7 +8,11 @@
     {
     }
 
-    public class EbayProvider : BasePlatform, IEbayProvider
+    public class EbayPlatform : BasePlatform, IEbayProvider
     {
+        public EbayPlatform()
+        {
+            Platform = Platform.Ebay;
+        }
     }
 }

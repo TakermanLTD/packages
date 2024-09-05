@@ -8,8 +8,13 @@
     {
     }
 
-    public class AlobgProvider : BasePlatform, IAlobgProvider
+    public class AlobgPlatform : BasePlatform, IAlobgProvider
     {
+        public AlobgPlatform()
+        {
+            Platform = Platform.Alobg;
+        }
+
         private static async Task ProcessRepositoriesAsync()
         {
             HttpClient client = new HttpClient();

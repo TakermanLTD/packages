@@ -8,7 +8,11 @@
     {
     }
 
-    public class FacebookProvider : BasePlatform, IFacebookProvider
+    public class FacebookPlatform : BasePlatform, IFacebookProvider
     {
+        public FacebookPlatform()
+        {
+            Platform = Platform.Facebook;
+        }
     }
 }

@@ -8,7 +8,11 @@
     {
     }
 
-    public class AliexpressProvider : BasePlatform, IAliexpressProvider
+    public class AliexpressPlatform : BasePlatform, IAliexpressProvider
     {
+        public AliexpressPlatform()
+        {
+            Platform = Platform.Aliexpress;
+        }
     }
 }

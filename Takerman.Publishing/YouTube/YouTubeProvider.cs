@@ -14,12 +14,21 @@ namespace Takerman.Publishing.YouTube
     {
     }
 
-    public class YouTubeProvider(IOptions<YouTubeConfig> _youtubeOptions) : BasePlatform, IYouTubeProvider
+    public class YouTubeProvider : BasePlatform, IYouTubeProvider
     {
-        private HttpClient _httpClient = new()
+        private readonly HttpClient _httpClient;
+
+        private readonly IOptions<YouTubeConfig> _youtubeOptions;
+
+        public YouTubeProvider(IOptions<YouTubeConfig> youtubeOptions)
         {
-            BaseAddress = new Uri("https://developers.google.com/youtube/v3")
-        };
+            _httpClient = new()
+            {
+                BaseAddress = new Uri("https://developers.google.com/youtube/v3")
+            };
+            _youtubeOptions = youtubeOptions;
+            Platform = Platform.YouTube;
+        }
 
         public async Task<YouTubeService> Authenticate()
         {

@@ -8,7 +8,11 @@
     {
     }
 
-    public class InstagramProvider : BasePlatform, IInstagramProvider
+    public class InstagramPlatform : BasePlatform, IInstagramProvider
     {
+        public InstagramPlatform()
+        {
+            Platform = Platform.Instagram;
+        }
     }
 }

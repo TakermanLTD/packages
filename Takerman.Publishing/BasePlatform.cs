@@ -6,5 +6,6 @@
 
     public abstract class BasePlatform : IProvider
     {
+        public Platform Platform { get; set; }
     }
 }

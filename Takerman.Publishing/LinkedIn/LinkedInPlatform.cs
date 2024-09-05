@@ -8,7 +8,11 @@
     {
     }
 
-    public class LinkedInProvider : BasePlatform, ILinkedInProvider
+    public class LinkedInPlatform : BasePlatform, ILinkedInProvider
     {
+        public LinkedInPlatform()
+        {
+            Platform = Platform.LinkedIn;
+        }
     }
 }

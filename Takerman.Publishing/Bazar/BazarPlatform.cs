@@ -8,7 +8,11 @@
     {
     }
 
-    public class BazarProvider : BasePlatform, IBazarbgProvider
+    public class BazarPlatform : BasePlatform, IBazarbgProvider
     {
+        public BazarPlatform()
+        {
+            Platform = Platform.Bazar;
+        }
     }
 }

@@ -2,11 +2,11 @@
 {
     public enum PostType
     {
-        Video,
-        Short,
-        Blogpost,
-        Tweet,
-        Selling,
-        Picture
+        Video = 1,
+        Short = 2,
+        Blogpost = 3,
+        Tweet = 4,
+        Selling = 5,
+        Picture = 6
     }
 }

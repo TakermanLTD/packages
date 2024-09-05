@@ -11,9 +11,17 @@ namespace Takerman.Publishing.Spotify
     {
     }
 
-    public class SpotifyProvider(IOptions<SpotifyConfig> _options) : BasePlatform, ISpotifyProvider
+    public class SpotifyPlatform : BasePlatform, ISpotifyProvider
     {
-        private readonly SpotifyClient _spotify = new SpotifyClient(_options.Value.ClientId);
+        private readonly SpotifyClient _spotify;
+        private readonly IOptions<SpotifyConfig> _options;
+
+        public SpotifyPlatform(IOptions<SpotifyConfig> options)
+        {
+            _options = options;
+            _spotify = new SpotifyClient(_options.Value.ClientId);
+            Platform = Platform.Spotify;
+        }
 
         public async Task<SearchResponse> GetByGenre(string genre)
         {

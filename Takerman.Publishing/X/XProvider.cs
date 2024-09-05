@@ -10,5 +10,9 @@
 
     public class XProvider : BasePlatform, IXProvider
     {
+        public XProvider()
+        {
+            Platform = Platform.X;
+        }
     }
 }

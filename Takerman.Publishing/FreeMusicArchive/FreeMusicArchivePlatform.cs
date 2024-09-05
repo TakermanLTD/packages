@@ -13,8 +13,18 @@ namespace Takerman.Publishing.FreeMusicArchive
         Task<FmaSongDto> GetNewest();
     }
 
-    public class FreeMusicArchiveProvider(IOptions<FreeMusicArchiveConfig> _options, HttpClient _client) : BasePlatform, IFreeMusicArchiveProvider
+    public class FreeMusicArchivePlatform : BasePlatform, IFreeMusicArchiveProvider
     {
+        private readonly IOptions<FreeMusicArchiveConfig> _options;
+        private readonly HttpClient _client;
+
+        public FreeMusicArchivePlatform(IOptions<FreeMusicArchiveConfig> options, HttpClient client)
+        {
+            _options = options;
+            _client = client;
+            Platform = Platform.FreeMusicArchive;
+        }
+
         public async Task<FmaSongDto> GetNewest()
         {
             var response = await _client.GetAsync($"{_options.Value.ClientUrl}/get/tracks.json?limit={_options.Value.Limit}");

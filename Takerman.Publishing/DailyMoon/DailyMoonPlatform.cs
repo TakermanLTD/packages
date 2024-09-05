@@ -8,7 +8,11 @@
     {
     }
 
-    public class DailyMoonProvider : BasePlatform, IDailyMoonProvider
+    public class DailyMoonPlatform : BasePlatform, IDailyMoonProvider
     {
+        public DailyMoonPlatform()
+        {
+            Platform = Platform.DailyMoon;
+        }
     }
 }

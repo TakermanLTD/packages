@@ -12,8 +12,16 @@ namespace Takerman.Publishing.Pexels
     {
     }
 
-    public class PexelsProvider(IOptions<PexelsConfig> _pexelsOptions) : BasePlatform, IPexelsProvider
+    public class PexelsPlatform : BasePlatform, IPexelsProvider
     {
+        private readonly IOptions<PexelsConfig> _pexelsOptions;
+
+        public PexelsPlatform(IOptions<PexelsConfig> pexelsOptions)
+        {
+            _pexelsOptions = pexelsOptions;
+            Platform = Platform.Pexels;
+        }
+
         public async Task Download(string search, int imagesCount, string location)
         {
             var urls = await GetUrls(search);

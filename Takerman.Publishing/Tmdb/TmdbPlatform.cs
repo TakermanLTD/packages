@@ -8,7 +8,11 @@
     {
     }
 
-    public class TmdbProvider : BasePlatform, ITmdbProvider
+    public class TmdbPlatform : BasePlatform, ITmdbProvider
     {
+        public TmdbPlatform()
+        {
+            Platform = Platform.Tmdb;
+        }
     }
 }

@@ -8,7 +8,11 @@
     {
     }
 
-    public class VimeoProvider : BasePlatform, IVimeoProvider
+    public class VimeoPlatform : BasePlatform, IVimeoProvider
     {
+        public VimeoPlatform()
+        {
+            Platform = Platform.Vimeo;
+        }
     }
 }

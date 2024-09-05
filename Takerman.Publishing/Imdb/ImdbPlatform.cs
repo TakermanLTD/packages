@@ -8,7 +8,11 @@
     {
     }
 
-    public class ImdbProvider : BasePlatform, IImdbProvider
+    public class ImdbPlatform : BasePlatform, IImdbProvider
     {
+        public ImdbPlatform()
+        {
+            Platform = Platform.Imdb;
+        }
     }
 }

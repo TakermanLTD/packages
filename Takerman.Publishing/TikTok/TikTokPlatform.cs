@@ -8,7 +8,11 @@
     {
     }
 
-    public class TikTokProvider : BasePlatform, ITikTokProvider
+    public class TikTokPlatform : BasePlatform, ITikTokProvider
     {
+        public TikTokPlatform()
+        {
+            Platform = Platform.TikTok;
+        }
     }
 }

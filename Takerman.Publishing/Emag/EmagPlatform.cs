@@ -8,7 +8,11 @@
     {
     }
 
-    public class EmagProvider : BasePlatform, IEmagProvider
+    public class EmagPlatform : BasePlatform, IEmagProvider
     {
+        public EmagPlatform()
+        {
+            Platform = Platform.Emag;
+        }
     }
 }

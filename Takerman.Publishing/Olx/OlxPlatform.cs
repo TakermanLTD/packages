@@ -10,8 +10,13 @@ namespace Takerman.Publishing.Olx
     {
     }
 
-    public class OlxProvider : BasePlatform, IOlxProvider
+    public class OlxPlatform : BasePlatform, IOlxProvider
     {
+        public OlxPlatform()
+        {
+            Platform = Platform.Olx;
+        }
+
         private static async Task GetTokenAsync()
         {
             HttpClient client = new HttpClient();

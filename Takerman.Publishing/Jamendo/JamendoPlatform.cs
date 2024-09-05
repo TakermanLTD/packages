@@ -13,12 +13,20 @@ namespace Takerman.Publishing.Jamendo
     {
     }
 
-    public class JamendoProvider(IOptions<JamendoConfig> _jamendoOptions) : BasePlatform, IJamendoProvider
+    public class JamendoPlatform : BasePlatform, IJamendoProvider
     {
-        private readonly HttpClient _client = new()
+        private readonly IOptions<JamendoConfig> _jamendoOptions;
+        private readonly HttpClient _client;
+
+        public JamendoPlatform(IOptions<JamendoConfig> jamendoOptions)
         {
-            BaseAddress = new Uri(_jamendoOptions.Value.ClientUrl)
-        };
+            _jamendoOptions = jamendoOptions;
+            _client = new()
+            {
+                BaseAddress = new Uri(_jamendoOptions.Value.ClientUrl)
+            };
+            Platform = Platform.Jamendo;
+        }
 
         public async Task Download(string search, int clipsCount, string location)
         {

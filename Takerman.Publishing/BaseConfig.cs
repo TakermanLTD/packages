@@ -11,7 +11,7 @@
         public int Limit { get; set; }
     }
 
-    public abstract class BaseConfig : IBaseConfig
+    public class BaseConfig : IBaseConfig
     {
         public string ClientUrl { get; set; } = string.Empty;
 

@@ -23,6 +23,8 @@
         Vimeo = 19,
         X = 20,
         YouTube = 21,
-        Wordpress = 22
+        Wordpress = 22,
+        Medium = 23,
+        Blogger = 24
     }
 }

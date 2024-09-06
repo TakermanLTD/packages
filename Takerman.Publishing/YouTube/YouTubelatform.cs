@@ -14,13 +14,13 @@ namespace Takerman.Publishing.YouTube
     {
     }
 
-    public class YouTubeProvider : BasePlatform, IYouTubeProvider
+    public class YouTubelatform : BasePlatform, IYouTubeProvider
     {
         private readonly HttpClient _httpClient;
 
         private readonly IOptions<YouTubeConfig> _youtubeOptions;
 
-        public YouTubeProvider(IOptions<YouTubeConfig> youtubeOptions)
+        public YouTubelatform(IOptions<YouTubeConfig> youtubeOptions)
         {
             _httpClient = new()
             {

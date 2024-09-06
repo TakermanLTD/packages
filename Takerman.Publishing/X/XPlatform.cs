@@ -8,9 +8,9 @@
     {
     }
 
-    public class XProvider : BasePlatform, IXProvider
+    public class XPlatform : BasePlatform, IXProvider
     {
-        public XProvider()
+        public XPlatform()
         {
             Platform = Platform.X;
         }

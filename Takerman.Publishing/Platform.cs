@@ -22,6 +22,7 @@
         Tmdb = 18,
         Vimeo = 19,
         X = 20,
-        YouTube = 21
+        YouTube = 21,
+        Wordpress = 22
     }
 }

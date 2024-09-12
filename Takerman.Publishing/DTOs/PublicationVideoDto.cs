@@ -1,12 +1,14 @@
 ﻿namespace Takerman.Publishing.Data.DTOs
 {
-    public class PublicationVideoDto : IPublication
+    public class PublicationVideoDto
     {
+        public virtual int Id { get; set; }
+
         public int ProjectId { get; set; }
 
         public PostType Type { get; } = PostType.Video;
 
-        public IEnumerable<Platform> Platforms { get; set; }
+        public List<Platform> Platforms { get; set; } = [];
 
         public string PostName { get; set; }
 

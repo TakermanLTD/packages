@@ -6,6 +6,15 @@ namespace Takerman.Packages.Tests.AI
     {
         private static OllamaApi _ollamaChat = new();
 
+        [Fact]
+        public async Task Should_GenerateMediaAnswer_When_RequestingWithText()
+        {
+            var question = @"Please make trendy stamp for t-shirt for Anime as Kimetsu no Yaiba.";
+            var result = await _ollamaChat.TextToMedia(question, OllamaModel.Flux7b);
+
+            Assert.NotNull(result);
+        }
+
         [Fact(Skip = "Until better way for the build is found")]
         public async Task Should_GenerateTextAnswer_When_RequestingWithText()
         {

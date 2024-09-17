@@ -6,6 +6,31 @@ namespace Takerman.Packages.Tests.AI
     {
         private static HuggingChatApi _huggingChat = new();
 
+        [Fact]
+        public async Task Should_GeneratePicturesAnswer_When_RequestingWithText()
+        {
+            Directory.CreateDirectory(@"C:\anime");
+
+            var i = 0;
+            while (i < 10)
+            {
+                try
+                {
+                    var image = await _huggingChat.TextToMedia("can you make for me a design of a t-shirt that loads of people would like to buy? it should be a trendy design for 2024 and i would be happy if is stylish one. I prefer to be from Animes and please show me only the stamps", HuggingChatModel.Flux);
+                    await File.WriteAllBytesAsync($@"C:\anime\image{i}.png", image);
+                    i++;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message + (ex.InnerException != null ? ex.InnerException.Message : string.Empty));
+                }
+
+                Console.WriteLine($"finished {i}");
+            }
+
+            Assert.True(true);
+        }
+
         [Fact(Skip = "Until better way for the build is found")]
         public async Task Should_GenerateTextAnswer_When_RequestingWithText()
         {
@@ -23,31 +48,6 @@ namespace Takerman.Packages.Tests.AI
                 {
                     Console.WriteLine(ex.Message + (ex.InnerException != null ? ex.InnerException.Message : string.Empty));
                 }
-            }
-
-            Assert.True(true);
-        }
-
-        [Fact(Skip = "Until better way for the build is found")]
-        public async Task Should_GeneratePicturesAnswer_When_RequestingWithText()
-        {
-            Directory.CreateDirectory(@"C:\anime");
-
-            var i = 0;
-            while (i < 10)
-            {
-                try
-                {
-                    var image = await _huggingChat.TextToMedia("Create possible the best anime character, that could be potentially one of the best anime characters ever. The picture should be better than the last one and the person should be visible in full height, full size of the person from top to the bottom.", HuggingChatModel.Flux);
-                    await File.WriteAllBytesAsync($@"C:\anime\image{i}.png", image);
-                    i++;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message + (ex.InnerException != null ? ex.InnerException.Message : string.Empty));
-                }
-
-                Console.WriteLine($"finished {i}");
             }
 
             Assert.True(true);

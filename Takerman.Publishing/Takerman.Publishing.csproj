@@ -7,19 +7,12 @@
 		<PackageIcon>logo_png.png</PackageIcon>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Copyright>Takerman</Copyright>
-		<PackageVersion>1.2.2</PackageVersion>
+		<PackageVersion>1.3.0</PackageVersion>
 		<IsPackable>True</IsPackable>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="..\logo_png.png">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="Google.Apis.YouTube.v3" Version="1.68.0.3513" />
+	  <PackageReference Include="Google.Apis.YouTube.v3" Version="1.68.0.3539" />
 	  <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
 	  <PackageReference Include="SpotifyAPI.Web" Version="7.1.1" />
 	</ItemGroup>

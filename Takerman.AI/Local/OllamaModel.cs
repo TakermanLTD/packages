@@ -8,6 +8,9 @@ namespace Takerman.AI.Local
         Phi3Mini,
 
         [Description("codellama")]
-        Codelamma7b
+        Codelamma7b,
+
+        [Description("chanwit/flux-7b")]
+        Flux7b
     }
 }

@@ -9,7 +9,7 @@ namespace Takerman.Logging
 {
     public static class LoggingExtensions
     {
-        private static string webhookUrl = Environment.GetEnvironmentVariable("SLACK_EXCEPTIONS");
+        private static string webhookUrl = Environment.GetEnvironmentVariable("SLACK_WEBHOOK_URL");
 
         public static Serilog.ILogger AddTakermanLogging(this ILoggingBuilder builder)
         {

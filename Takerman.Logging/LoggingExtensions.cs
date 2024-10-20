@@ -9,7 +9,7 @@ namespace Takerman.Logging
 {
     public static class LoggingExtensions
     {
-        private static string webhookUrl = Environment.GetEnvironmentVariable("SLACK_WEBHOOK_URL");
+        private static string webhookUrl = Environment.GetEnvironmentVariable("SLACK_EXCEPTIONS");
 
         public static Serilog.ILogger AddTakermanLogging(this ILoggingBuilder builder)
         {
@@ -30,7 +30,7 @@ namespace Takerman.Logging
         public static Serilog.ILogger GetLogger() => new LoggerConfiguration()
                 .MinimumLevel.Warning()
                 .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Warning)
-                .WriteTo.Slack(webhookUrl)
+                .WriteTo.Slack( webhookUrl: webhookUrl, restrictedToMinimumLevel: LogEventLevel.Error)
                 .Enrich.WithMachineName()
                 .Enrich.WithEnvironmentName()
                 .Enrich.WithExceptionDetails()

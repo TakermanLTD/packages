@@ -11,7 +11,7 @@ namespace Takerman.Logging
         public static Serilog.ILogger TakermanLogger => new LoggerConfiguration()
                 .MinimumLevel.Warning()
                 .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Warning)
-                .WriteTo.Slack("https://hooks.slack.com/services/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", restrictedToMinimumLevel: LogEventLevel.Error)
+                .WriteTo.Slack("https://hooks.slack.com/services/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", restrictedToMinimumLevel: LogEventLevel.Error)
                 .CreateLogger();
 
         public static Serilog.ILogger AddTakermanLogging(this ILoggingBuilder builder)

@@ -7,7 +7,7 @@
 		<PackageIcon>logo_png.png</PackageIcon>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Copyright>Takerman</Copyright>
-		<PackageVersion>1.0.2</PackageVersion>
+		<PackageVersion>1.0.3</PackageVersion>
 		<IsPackable>True</IsPackable>
 	</PropertyGroup>
 
@@ -41,6 +41,10 @@
 		<PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0" />
 		<PackageReference Include="Serilog.Sinks.Http" Version="9.0.0" />
 		<PackageReference Include="Serilog.Sinks.Slack" Version="2.2.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Takerman.Extensions\Takerman.Extensions.csproj" />
 	</ItemGroup>
 
 </Project>

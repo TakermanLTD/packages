@@ -1,5 +1,6 @@
 ﻿using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
+using Takerman.Extensions;
 
 namespace Takerman.AI.Local
 {

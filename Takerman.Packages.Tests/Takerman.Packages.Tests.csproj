@@ -27,6 +27,7 @@
     <ProjectReference Include="..\Takerman.Auth\Takerman.Auth.csproj" />
     <ProjectReference Include="..\Takerman.Dating\Takerman.Dating.csproj" />
     <ProjectReference Include="..\Takerman.Extensions\Takerman.Extensions.csproj" />
+    <ProjectReference Include="..\Takerman.Logging\Takerman.Logging.csproj" />
     <ProjectReference Include="..\Takerman.Notifications\Takerman.Notifications.csproj" />
     <ProjectReference Include="..\Takerman.Publishing\Takerman.Publishing.csproj" />
   </ItemGroup>
@@ -40,7 +41,6 @@
     <Folder Include="Blogging\" />
     <Folder Include="Client\" />
     <Folder Include="Dating\" />
-    <Folder Include="Extensions\" />
     <Folder Include="External\" />
     <Folder Include="Marketplace\" />
     <Folder Include="Media\" />

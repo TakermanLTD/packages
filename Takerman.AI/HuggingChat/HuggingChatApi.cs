@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.Json;
 using Takerman.AI.DTOs;
+using Takerman.Extensions;
 
 namespace Takerman.AI.HuggingChat
 {

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\takerframework\takerframework.esproj" />
     <ProjectReference Include="..\Takerman.AI\Takerman.AI.csproj" />
     <ProjectReference Include="..\Takerman.Auth\Takerman.Auth.csproj" />
     <ProjectReference Include="..\Takerman.Dating\Takerman.Dating.csproj" />

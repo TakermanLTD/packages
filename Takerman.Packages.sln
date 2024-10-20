@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Dating", "Takerman
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Auth", "Takerman.Auth\Takerman.Auth.csproj", "{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "takerframework", "takerframework\takerframework.esproj", "{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.Extensions", "Takerman.Extensions\Takerman.Extensions.csproj", "{478DFCC7-E1B3-4520-A5B4-A2CD95DC28E6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Takerman.AI", "Takerman.AI\Takerman.AI.csproj", "{C86E201B-72CB-404D-BF3A-E2ED24600E80}"
@@ -39,12 +37,6 @@ Global
 		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E9796E6-3D7E-4988-8572-B0317D3BEEB9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D2D6CA6C-9CA4-496D-A83B-45D3F34D2B6D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{478DFCC7-E1B3-4520-A5B4-A2CD95DC28E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{478DFCC7-E1B3-4520-A5B4-A2CD95DC28E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{478DFCC7-E1B3-4520-A5B4-A2CD95DC28E6}.Release|Any CPU.ActiveCfg = Release|Any CPU

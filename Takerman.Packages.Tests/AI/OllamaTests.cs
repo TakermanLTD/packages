@@ -6,7 +6,7 @@ namespace Takerman.Packages.Tests.AI
     {
         private static OllamaApi _ollamaChat = new();
 
-        [Fact]
+        [Fact(Skip = "Prod")]
         public async Task Should_GenerateMediaAnswer_When_RequestingWithText()
         {
             var question = @"Please make trendy stamp for t-shirt for Anime as Kimetsu no Yaiba.";

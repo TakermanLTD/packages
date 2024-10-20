@@ -34,7 +34,7 @@ jobs:
           dotnet nuget locals all --clear
           for csproj in $(find . -name '*.csproj'); do
             dotnet pack "$csproj" --output nupkg
-            dotnet nuget push "nupkg/*.nupkg" --api-key ${{secrets.GITHUB_TOKEN}} --skip-duplicate
+            dotnet nuget push "*.nupkg" --api-key ${{secrets.GITHUB_TOKEN}} --skip-duplicate
           done
           
       # - uses: actions/setup-node@v4

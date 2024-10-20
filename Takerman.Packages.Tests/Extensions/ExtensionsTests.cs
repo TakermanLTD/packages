@@ -14,7 +14,7 @@ namespace Takerman.Packages.Tests.Extensions
             Assert.NotNull(result);
         }
 
-        [Fact]
+        [Fact(Skip = "Prod")]
         public void Should_GetEnvironmentVariable_When_VariableIsSet()
         {
             var webhook = Environment.GetEnvironmentVariable("SLACK_WEBHOOK_URL");

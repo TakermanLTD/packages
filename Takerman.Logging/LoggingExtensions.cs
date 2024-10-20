@@ -28,7 +28,7 @@ namespace Takerman.Logging
         }
 
         public static Serilog.ILogger GetLogger() => new LoggerConfiguration()
-                                .MinimumLevel.Warning()
+                .MinimumLevel.Warning()
                 .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Warning)
                 .WriteTo.Slack(webhookUrl)
                 .Enrich.WithMachineName()

@@ -29,31 +29,32 @@ jobs:
       - name: Test
         run: dotnet test --verbosity normal
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@TAKERMANLTD'
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20.x'
+      #     registry-url: 'https://npm.pkg.github.com'
+      #     scope: '@TAKERMANLTD'
           
-      - name: Build Vue framework
-        working-directory: ./takerframework
-        run: npm ci
-      - name: Check if version exists
-        working-directory: ./takerframework
-        id: check-version
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          PKG_NAME=$(node -p "require('./package.json').name")
-          EXISTS=$(npm view "$PKG_NAME@$VERSION" version)
-          echo "PKG_EXISTS=$EXISTS" >> $GITHUB_ENV
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+      # - name: Build Vue framework
+      #   working-directory: ./takerframework
+      #   run: npm ci
+
+      # - name: Check if version exists
+      #   working-directory: ./takerframework
+      #   id: check-version
+      #   run: |
+      #     VERSION=$(node -p "require('./package.json').version")
+      #     PKG_NAME=$(node -p "require('./package.json').name")
+      #     EXISTS=$(npm view "$PKG_NAME@$VERSION" version)
+      #     echo "PKG_EXISTS=$EXISTS" >> $GITHUB_ENV
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
           
-      - name: Publish to npm
-        if: env.PKG_EXISTS == ''
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+      # - name: Publish to npm
+      #   if: env.PKG_EXISTS == ''
+      #   run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
     
       - name: Pack and Publish
         run: |

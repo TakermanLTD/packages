@@ -2,34 +2,38 @@
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
-using Serilog.Sinks.Slack;
 using Serilog.Exceptions;
+using Serilog.Sinks.Slack;
 
 namespace Takerman.Logging
 {
     public static class LoggingExtensions
     {
-        public static Serilog.ILogger TakermanLogger => new LoggerConfiguration()
-                .MinimumLevel.Warning()
-                .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Warning)
-                .WriteTo.Slack(webhookUrl: Environment.GetEnvironmentVariable("SLACK_WEBHOOK_URL"), restrictedToMinimumLevel: LogEventLevel.Error)
-                .Enrich.WithMachineName()
-                .Enrich.WithEnvironmentName()
-                .Enrich.WithExceptionDetails()
-                .CreateLogger();
+        private static string webhookUrl = Environment.GetEnvironmentVariable("SLACK_WEBHOOK_URL");
 
         public static Serilog.ILogger AddTakermanLogging(this ILoggingBuilder builder)
         {
-            builder.AddSerilog(TakermanLogger);
+            var logger = GetLogger();
+            builder.AddSerilog(logger);
 
-            return TakermanLogger;
+            return logger;
         }
 
         public static Serilog.ILogger AddTakermanLogging(this IHostBuilder host)
         {
-            host.UseSerilog(TakermanLogger);
+            var logger = GetLogger();
+            host.UseSerilog(logger);
 
-            return TakermanLogger;
+            return logger;
         }
+
+        public static Serilog.ILogger GetLogger() => new LoggerConfiguration()
+                                .MinimumLevel.Warning()
+                .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Warning)
+                .WriteTo.Slack(webhookUrl)
+                .Enrich.WithMachineName()
+                .Enrich.WithEnvironmentName()
+                .Enrich.WithExceptionDetails()
+                .CreateLogger();
     }
 }

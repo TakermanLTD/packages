@@ -8,7 +8,7 @@
 		<Copyright>Takerman</Copyright>
 		<PackageIcon>logo_png.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageVersion>1.0.3</PackageVersion>
+		<PackageVersion>1.0.4</PackageVersion>
 		<Description>Nuget package for managing the dates in the dating services</Description>
 		<IsPackable>True</IsPackable>
 	</PropertyGroup>

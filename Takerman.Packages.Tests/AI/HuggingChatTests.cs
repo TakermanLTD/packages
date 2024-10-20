@@ -6,7 +6,7 @@ namespace Takerman.Packages.Tests.AI
     {
         private static HuggingChatApi _huggingChat = new();
 
-        [Fact]
+        [Fact(Skip = "Prod")]
         public async Task Should_GeneratePicturesAnswer_When_RequestingWithText()
         {
             Directory.CreateDirectory(@"C:\anime");

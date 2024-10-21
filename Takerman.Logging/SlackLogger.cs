@@ -1,17 +1,22 @@
-﻿using Microsoft.Extensions.Logging;
+﻿
+using Microsoft.Extensions.Logging;
+using System;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
-using Takerman.Extensions;
+using System.Threading.Tasks;
 
 namespace Takerman.Logging
 {
     public class SlackLogger : ILogger
     {
-        private readonly SlackLoggerHelper _slackLoggerHelper;
+        private readonly string _webhookUrl;
+        private readonly HttpClient _httpClient;
 
-        public SlackLogger(string webhookUrl)
+        public SlackLogger(string webhookUrl, HttpClient httpClient)
         {
-            _slackLoggerHelper = new SlackLoggerHelper(webhookUrl);
+            _webhookUrl = webhookUrl;
+            _httpClient = httpClient;
         }
 
         public IDisposable BeginScope<TState>(TState state) => null;
@@ -26,22 +31,10 @@ namespace Takerman.Logging
             }
 
             var message = formatter(state, exception);
-            _slackLoggerHelper.LogAsync($"[{logLevel}] {message}", exception?.ToString()).Wait();
-        }
-    }
-
-    internal class SlackLoggerHelper
-    {
-        private readonly HttpClient _httpClient;
-        private readonly string _webhookUrl;
-
-        public SlackLoggerHelper(string webhookUrl)
-        {
-            _httpClient = new HttpClient();
-            _webhookUrl = webhookUrl;
+            LogToSlackAsync($"[{logLevel}] {message}", exception?.ToString()).Wait();
         }
 
-        public async Task LogAsync(string message, string exception)
+        private async Task LogToSlackAsync(string message, string exception)
         {
             var payload = new
             {
@@ -64,4 +57,24 @@ namespace Takerman.Logging
             await _httpClient.PostAsync(_webhookUrl, content);
         }
     }
+
+    public class SlackLoggerProvider : ILoggerProvider
+    {
+        private readonly string _webhookUrl;
+        private readonly HttpClient _httpClient;
+
+        public SlackLoggerProvider(string webhookUrl, HttpClient httpClient)
+        {
+            _webhookUrl = webhookUrl;
+            _httpClient = httpClient;
+        }
+
+        public ILogger CreateLogger(string categoryName)
+        {
+            return new SlackLogger(_webhookUrl, _httpClient);
+        }
+
+        public void Dispose() { }
+    }
+
 }

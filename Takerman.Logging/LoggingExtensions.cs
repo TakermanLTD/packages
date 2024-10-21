@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 using Serilog.Exceptions;
@@ -10,7 +9,7 @@ namespace Takerman.Logging
 {
     public static class LoggingExtensions
     {
-        public static Serilog.ILogger AddTakermanLogging(this ILoggingBuilder builder)
+        public static ILogger AddTakermanLogging(this Microsoft.Extensions.Logging.ILoggingBuilder builder)
         {
             var logger = GetLogger();
             builder.AddSerilog(logger);
@@ -18,7 +17,7 @@ namespace Takerman.Logging
             return logger;
         }
 
-        public static Serilog.ILogger AddTakermanLogging(this IHostBuilder host)
+        public static ILogger AddTakermanLogging(this IHostBuilder host)
         {
             var logger = GetLogger();
             host.UseSerilog(logger);
@@ -26,7 +25,7 @@ namespace Takerman.Logging
             return logger;
         }
 
-        public static Serilog.ILogger GetLogger()
+        public static ILogger GetLogger()
         {
             var webhook = "X+WrMEkq8umlI49yn+BmlpSd5HABImSunjgiI/0m3JRsFTHz56XXi6/qguOoaWGnzrdfMeSZc1xFi5Um2mBjChmixoLWxh7S7a0FnY0tfuQ=".DecryptString();
             return new LoggerConfiguration()

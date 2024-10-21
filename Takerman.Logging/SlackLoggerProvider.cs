@@ -9,9 +9,9 @@ namespace Takerman.Logging
     {
         private readonly SlackLoggerHelper _slackLoggerHelper;
 
-        public SlackLogger()
+        public SlackLogger(string webhookUrl)
         {
-            _slackLoggerHelper = new SlackLoggerHelper();
+            _slackLoggerHelper = new SlackLoggerHelper(webhookUrl);
         }
 
         public IDisposable BeginScope<TState>(TState state) => null;
@@ -30,25 +30,15 @@ namespace Takerman.Logging
         }
     }
 
-    public class SlackLoggerProvider : ILoggerProvider
-    {
-        public ILogger CreateLogger(string categoryName)
-        {
-            return new SlackLogger();
-        }
-
-        public void Dispose()
-        { }
-    }
-
     internal class SlackLoggerHelper
     {
         private readonly HttpClient _httpClient;
-        private readonly string _webhookUrl = "X+WrMEkq8umlI49yn+BmlpSd5HABImSunjgiI/0m3JRsFTHz56XXi6/qguOoaWGnzrdfMeSZc1xFi5Um2mBjChmixoLWxh7S7a0FnY0tfuQ=".DecryptString();
+        private readonly string _webhookUrl;
 
-        public SlackLoggerHelper()
+        public SlackLoggerHelper(string webhookUrl)
         {
             _httpClient = new HttpClient();
+            _webhookUrl = webhookUrl;
         }
 
         public async Task LogAsync(string message, string exception)

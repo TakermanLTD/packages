@@ -16,7 +16,7 @@ namespace Takerman.Logging
 
         public IDisposable BeginScope<TState>(TState state) => null;
 
-        public bool IsEnabled(LogLevel logLevel) => true;
+        public bool IsEnabled(LogLevel logLevel) => logLevel >= LogLevel.Error;
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
@@ -26,7 +26,7 @@ namespace Takerman.Logging
             }
 
             var message = formatter(state, exception);
-            _slackLoggerHelper.LogAsync($"[{logLevel}] {message}").Wait();
+            _slackLoggerHelper.LogAsync($"[{logLevel}] {message}", exception?.ToString()).Wait();
         }
     }
 
@@ -51,11 +51,21 @@ namespace Takerman.Logging
             _httpClient = new HttpClient();
         }
 
-        public async Task LogAsync(string message)
+        public async Task LogAsync(string message, string exception)
         {
             var payload = new
             {
-                text = message
+                text = message,
+                icon_emoji = ":warning:",  // Customize the icon here
+                attachments = new[]
+                {
+                new
+                {
+                    fallback = "Exception details",
+                    color = "#FF0000", // Red color for errors
+                    text = exception
+                }
+            }
             };
 
             var json = JsonSerializer.Serialize(payload);

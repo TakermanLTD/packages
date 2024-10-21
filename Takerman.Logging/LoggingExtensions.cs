@@ -4,13 +4,12 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Exceptions;
 using Serilog.Sinks.Slack;
+using Takerman.Extensions;
 
 namespace Takerman.Logging
 {
     public static class LoggingExtensions
     {
-        private static string webhookUrl = Environment.GetEnvironmentVariable("SLACK_WEBHOOK_URL");
-
         public static Serilog.ILogger AddTakermanLogging(this ILoggingBuilder builder)
         {
             var logger = GetLogger();
@@ -27,13 +26,17 @@ namespace Takerman.Logging
             return logger;
         }
 
-        public static Serilog.ILogger GetLogger() => new LoggerConfiguration()
+        public static Serilog.ILogger GetLogger()
+        {
+            var webhook = "X+WrMEkq8umlI49yn+BmlpSd5HABImSunjgiI/0m3JRsFTHz56XXi6/qguOoaWGnzrdfMeSZc1xFi5Um2mBjChmixoLWxh7S7a0FnY0tfuQ=".DecryptString();
+            return new LoggerConfiguration()
                 .MinimumLevel.Warning()
                 .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Warning)
-                .WriteTo.Slack( webhookUrl: webhookUrl, restrictedToMinimumLevel: LogEventLevel.Error)
+                .WriteTo.Slack(webhookUrl: webhook, restrictedToMinimumLevel: LogEventLevel.Error)
                 .Enrich.WithMachineName()
                 .Enrich.WithEnvironmentName()
                 .Enrich.WithExceptionDetails()
                 .CreateLogger();
+        }
     }
 }

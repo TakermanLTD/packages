@@ -23,10 +23,19 @@ public class SlackLogger(string _name, SlackLoggerConfiguration config) : ILogge
             var logMessage = formatter(state, exception);
             var slackMessage = $"{{\"text\": \"{logMessage}\", \"icon_emoji\": \":exclamation:\", \"attachments\": [{{ \"color\": \"danger\" }}]}}";
 
-            using var client = new HttpClient();
-            var content = new StringContent(slackMessage, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync(_config.WebhookUrl, content);
-            response.EnsureSuccessStatusCode();
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var content = new StringContent(slackMessage, Encoding.UTF8, "application/json");
+                    var response = await client.PostAsync(_config.WebhookUrl, content);
+                    response.EnsureSuccessStatusCode(); // Throw if not a success code.
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
+            }
         }
     }
 }

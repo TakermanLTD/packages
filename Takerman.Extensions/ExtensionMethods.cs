@@ -6,10 +6,28 @@ namespace Takerman.Extensions
 {
     public static class ExtensionMethods
     {
-        private static readonly byte[] Key = Encoding.ASCII.GetBytes("0123456789ABCDEF0123456789ABCDEF");
         private static readonly byte[] IV = Encoding.ASCII.GetBytes("1234567890ABCDEF");
-
+        private static readonly byte[] Key = Encoding.ASCII.GetBytes("0123456789ABCDEF0123456789ABCDEF");
         private static Random rng = new();
+
+        public static string DecryptString(this string cipherText)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Key;
+                aes.IV = IV;
+
+                using (MemoryStream memoryStream = new MemoryStream(Convert.FromBase64String(cipherText)))
+                {
+                    ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
+                    using (StreamReader streamReader = new StreamReader(cryptoStream))
+                    {
+                        return streamReader.ReadToEnd();
+                    }
+                }
+            }
+        }
 
         public static string EncryptString(this string plainText)
         {
@@ -31,25 +49,6 @@ namespace Takerman.Extensions
             }
         }
 
-        public static string DecryptString(this string cipherText)
-        {
-            using (Aes aes = Aes.Create())
-            {
-                aes.Key = Key;
-                aes.IV = IV;
-
-                using (MemoryStream memoryStream = new MemoryStream(Convert.FromBase64String(cipherText)))
-                {
-                    ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
-                    using (StreamReader streamReader = new StreamReader(cryptoStream))
-                    {
-                        return streamReader.ReadToEnd();
-                    }
-                }
-            }
-        }
-
         public static string GetEnumDescription(this Enum enumValue)
         {
             var field = enumValue.GetType().GetField(enumValue.ToString());
@@ -58,6 +57,11 @@ namespace Takerman.Extensions
                 return attribute.Description;
             }
             throw new ArgumentException("Item not found.", nameof(enumValue));
+        }
+
+        public static string GetMessage(this Exception ex)
+        {
+            return ex.Message + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
         }
 
         public static IEnumerable<T> Randomize<T>(this IEnumerable<T> source)

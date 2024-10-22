@@ -7,7 +7,7 @@
 		<PackageIcon>logo_png.png</PackageIcon>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Copyright>Takerman</Copyright>
-		<PackageVersion>1.2.7</PackageVersion>
+		<PackageVersion>1.2.8</PackageVersion>
 		<IsPackable>True</IsPackable>
 	</PropertyGroup>
 

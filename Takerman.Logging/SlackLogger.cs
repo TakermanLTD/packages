@@ -25,7 +25,8 @@ public class SlackLogger(string _name, SlackLoggerConfiguration config) : ILogge
 
             using var client = new HttpClient();
             var content = new StringContent(slackMessage, Encoding.UTF8, "application/json");
-            await client.PostAsync(_config.WebhookUrl, content);
+            var response = await client.PostAsync(_config.WebhookUrl, content);
+            response.EnsureSuccessStatusCode();
         }
     }
 }

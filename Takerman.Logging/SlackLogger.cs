@@ -34,7 +34,7 @@ public class SlackLogger(string _name, SlackLoggerConfiguration config) : ILogge
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
+                Console.WriteLine(ex.Message + (ex.InnerException != null ? ex.InnerException.Message : string.Empty));
             }
         }
     }

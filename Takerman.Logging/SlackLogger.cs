@@ -1,80 +1,56 @@
-﻿
-using Microsoft.Extensions.Logging;
-using System;
-using System.Net.Http;
+﻿using Microsoft.Extensions.Logging;
 using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+using Takerman.Extensions;
 
-namespace Takerman.Logging
+public class SlackLogger(string _name, SlackLoggerConfiguration config) : ILogger
 {
-    public class SlackLogger : ILogger
+    private readonly SlackLoggerConfiguration _config = config;
+
+    public IDisposable BeginScope<TState>(TState state) => null;
+
+    public bool IsEnabled(LogLevel logLevel) =>
+        _config.LogLevels.Contains(logLevel);
+
+    public async void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
     {
-        private readonly string _webhookUrl;
-        private readonly HttpClient _httpClient;
-
-        public SlackLogger(string webhookUrl, HttpClient httpClient)
+        if (!IsEnabled(logLevel))
         {
-            _webhookUrl = webhookUrl;
-            _httpClient = httpClient;
+            return;
         }
 
-        public IDisposable BeginScope<TState>(TState state) => null;
-
-        public bool IsEnabled(LogLevel logLevel) => logLevel >= LogLevel.Error;
-
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+        if (_config.EventId == 0 || _config.EventId == eventId.Id)
         {
-            if (!IsEnabled(logLevel))
-            {
-                return;
-            }
+            var logMessage = formatter(state, exception);
+            var slackMessage = $"{{\"text\": \"{logMessage}\", \"icon_emoji\": \":exclamation:\", \"attachments\": [{{ \"color\": \"danger\" }}]}}";
 
-            var message = formatter(state, exception);
-            LogToSlackAsync($"[{logLevel}] {message}", exception?.ToString()).Wait();
-        }
-
-        private async Task LogToSlackAsync(string message, string exception)
-        {
-            var payload = new
-            {
-                text = message,
-                icon_emoji = ":warning:",  // Customize the icon here
-                attachments = new[]
-                {
-                new
-                {
-                    fallback = "Exception details",
-                    color = "#FF0000", // Red color for errors
-                    text = exception
-                }
-            }
-            };
-
-            var json = JsonSerializer.Serialize(payload);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            await _httpClient.PostAsync(_webhookUrl, content);
+            using var client = new HttpClient();
+            var content = new StringContent(slackMessage, Encoding.UTF8, "application/json");
+            await client.PostAsync(_config.WebhookUrl, content);
         }
     }
+}
 
-    public class SlackLoggerProvider : ILoggerProvider
+public class SlackLoggerConfiguration
+{
+    public string WebhookUrl { get; set; }
+
+    public List<LogLevel> LogLevels { get; set; } = [LogLevel.Error];
+
+    public int EventId { get; set; } = 0;
+}
+
+public class SlackLoggerProvider : ILoggerProvider
+{
+    private readonly SlackLoggerConfiguration _config = new SlackLoggerConfiguration
     {
-        private readonly string _webhookUrl;
-        private readonly HttpClient _httpClient;
+        WebhookUrl = "X+WrMEkq8umlI49yn+BmlpSd5HABImSunjgiI/0m3JRsFTHz56XXi6/qguOoaWGnzrdfMeSZc1xFi5Um2mBjChmixoLWxh7S7a0FnY0tfuQ=".DecryptString(),
+        LogLevels = [LogLevel.Error, LogLevel.Critical]
+    };
 
-        public SlackLoggerProvider(string webhookUrl, HttpClient httpClient)
-        {
-            _webhookUrl = webhookUrl;
-            _httpClient = httpClient;
-        }
+    public ILogger CreateLogger(string categoryName) =>
+        new SlackLogger(categoryName, _config);
 
-        public ILogger CreateLogger(string categoryName)
-        {
-            return new SlackLogger(_webhookUrl, _httpClient);
-        }
-
-        public void Dispose() { }
+    public void Dispose()
+    {
     }
-
 }

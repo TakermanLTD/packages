@@ -7,7 +7,7 @@
 		<PackageIcon>logo_png.png</PackageIcon>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Copyright>Takerman</Copyright>
-		<PackageVersion>1.2.6</PackageVersion>
+		<PackageVersion>1.2.7</PackageVersion>
 		<IsPackable>True</IsPackable>
 	</PropertyGroup>
 
@@ -30,6 +30,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
